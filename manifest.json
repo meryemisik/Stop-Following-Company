@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Auto Uncheck",
+  "version": "1.3",
+  "description": "Unchecks the 'Follow company' checkbox by default when applying to jobs on LinkedIn.",
+  "host_permissions": ["*://*.linkedin.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
