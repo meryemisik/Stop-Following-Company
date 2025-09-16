@@ -1,14 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "LinkedIn Auto Uncheck",
-  "version": "1.3",
-  "description": "Unchecks the 'Follow company' checkbox by default when applying to jobs on LinkedIn.",
-  "host_permissions": ["*://*.linkedin.com/*"],
+  "name": "Stop Following Company",
+  "version": "1.4.1",
+  "description": "Automatically unchecks the 'Follow company' checkbox when applying to jobs on LinkedIn.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://www.linkedin.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["*://*.linkedin.com/*"],
-      "js": ["content.js"],
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["messages.js", "content.js"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Stop Following Company"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  }
 }

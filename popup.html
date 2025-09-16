@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Following Company</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 320px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+            color: white;
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .stats-container {
+            padding: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .stat-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .stat-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .daily-stat {
+            font-size: 14px;
+        }
+
+        .buttons-container {
+            padding: 0 20px 20px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .version {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.6;
+            padding-bottom: 10px;
+        }
+
+        .emoji {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🎯 Stop Following Company</h1>
+        <p>LinkedIn otomatik takip engelleyici</p>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-row">
+                <span class="stat-label">🚀 Toplam engellenen</span>
+                <span class="stat-value" id="totalCount">-</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label daily-stat">⚡ Bugün engellenen</span>
+                <span class="stat-value daily-stat" id="dailyCount">-</span>
+            </div>
+        </div>
+
+        <div class="stat-card" style="display: none;">
+            <div class="stat-row">
+                <span class="stat-label">📊 Kayıtlı şirket</span>
+                <span class="stat-value" id="companyCount">-</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <button class="btn btn-primary" id="viewCompanies">
+            <span class="emoji">📋</span>
+            Şirket Listesini Gör
+        </button>
+
+        <button class="btn btn-primary" id="goToLinkedIn" style="display: none;">
+            <span class="emoji">🔗</span>
+            LinkedIn'e Git
+        </button>
+
+        <button class="btn btn-secondary" id="resetStats">
+            <span class="emoji">🔄</span>
+            İstatistikleri Sıfırla
+        </button>
+
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>Extension aktif ve çalışıyor</span>
+        </div>
+    </div>
+
+    <div class="version">
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
