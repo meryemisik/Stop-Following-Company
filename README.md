@@ -1,6 +1,6 @@
 # Stop-Following-Company
 
-*Stop-Following-Company*; tarayıcı uzantısı olarak çalışır ve kullanıcıların “takip et” (follow) isteği gönderdikleri şirket profillerinden gelen bildirimleri, takip tekliflerini veya benzer araçları durdurmayı amaçlar.  
+*Stop-Following-Company*; Bu eklenti, LinkedIn üzerindeki iş başvurularınızı yönetmenizi ve takip edilmeyen şirketleri kontrol etmenizi sağlar. Başvuru sırasında şirket takip etme checkbox’ı otomatik olarak işaretsiz hale getirilir, böylece istemediğiniz şirketleri takip etmezsiniz.  
 
 ---
 
